@@ -15,10 +15,10 @@ def brute_force(ciphertext: str) -> list[tuple[int, str]]:
     for k in range(26):
         result = ""
         for char in ciphertext:
-            if char.islower():
-                result += chr((ord(char) - 97 - k) % 26 + 97)
-            elif char.isupper():
-                result += chr((ord(char) - 65 - k) % 26 + 65)
+            if 'a' <= char <= 'z':
+                result += chr((ord(char) - 97 + k) % 26 + 97)
+            elif 'A' <= char <= 'Z':
+                result += chr((ord(char) - 65 + k) % 26 + 65)
             else:
                 result += char
 
